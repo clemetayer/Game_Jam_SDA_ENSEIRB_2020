@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Sprites/Sky.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/DiggoIcon.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/DiggoTitle.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/PlayButton.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/PlayButtonHover.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/ExitButtonHover.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/PlayButtonPressed.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/ExitButtonPressed.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/ExitButton.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/TitleScene.gd" type="Script" id=10]
+
+[node name="TitleScene" type="Node2D"]
+script = ExtResource( 10 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( -0.71603, 0 )
+scale = Vector2( 1.28102, 1 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="DiggoIcon" type="Sprite" parent="."]
+position = Vector2( 2.10522, -179.474 )
+scale = Vector2( 0.957895, 0.963158 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="DiggoTitle" type="Sprite" parent="."]
+position = Vector2( -3.3241, -40.9972 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PlayButton" type="TextureButton" parent="."]
+margin_left = -75.8503
+margin_top = 30.1534
+margin_right = 224.15
+margin_bottom = 180.153
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ExitButton" type="TextureButton" parent="."]
+margin_left = -76.249
+margin_top = 135.697
+margin_right = 223.751
+margin_bottom = 285.697
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]
