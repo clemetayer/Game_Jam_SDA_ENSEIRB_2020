@@ -19,6 +19,10 @@ config/name="Game_Jam_SDA_2020"
 run/main_scene="res://Scenes/TitleScene.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+global="*res://Scripts/global.gd"
+
 [input]
 
 ui_left={

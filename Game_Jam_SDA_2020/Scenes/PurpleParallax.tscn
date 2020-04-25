@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/World/middleground.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/World/LightPinkBG.png" type="Texture" id=2]
+
+[node name="PurpleParallax" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2( 2048, 1400 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer"]
+scale = Vector2( 8, 8 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="ParallaxLayer"]
+scale = Vector2( 2, 2 )
+z_index = -1
+texture = ExtResource( 2 )
+centered = false

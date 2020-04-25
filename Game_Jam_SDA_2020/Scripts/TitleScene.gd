@@ -12,6 +12,7 @@ func _ready():
 	pass 
 
 func _on_PlayButton_pressed():
+	global.spawnPoint = Vector2(722,1044)
 	get_tree().change_scene_to(scene1)
 
 func _on_ExitButton_pressed():
