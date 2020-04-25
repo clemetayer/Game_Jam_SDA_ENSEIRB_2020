@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/Clouds.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Sky.png" type="Texture" id=2]
+
+[node name="Bg" type="ParallaxBackground"]
+
+[node name="SkyParallax" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2( 1500, 0 )
+
+[node name="Sky" type="Sprite" parent="SkyParallax"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="CloudsParallax" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2( 1500, 0 )
+
+[node name="Clouds" type="Sprite" parent="CloudsParallax"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+centered = false

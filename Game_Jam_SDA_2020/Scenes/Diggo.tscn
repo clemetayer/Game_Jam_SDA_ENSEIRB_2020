@@ -1,0 +1,71 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://Sprites/Animations/Diggo/Jumping/DiggoJumping0005.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Animations/Diggo/Jumping/DiggoJumping0002.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Animations/Diggo/Running/DiggoJumping0002.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Animations/Diggo/Running/DiggoJumping0005.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Animations/Diggo/Digging/DiggoJumping0000.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Animations/Diggo/Digging/DiggoJumping0002.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Animations/Diggo/Jumping/DiggoJumping0004.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Animations/Diggo/Running/DiggoJumping0003.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Animations/Diggo/Jumping/DiggoJumping0000.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Animations/Diggo/Running/DiggoJumping0004.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Animations/Diggo/Running/DiggoJumping0006.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Animations/Diggo/Jumping/DiggoJumping0006.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Animations/Diggo/Jumping/DiggoJumping0007.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Animations/Diggo/Digging/DiggoJumping0001.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Animations/Diggo/Running/DiggoJumping0000.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Animations/Diggo/Running/DiggoJumping0001.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Animations/Diggo/Running/DiggoJumping0007.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Animations/Diggo/Jumping/DiggoJumping0003.png" type="Texture" id=18]
+[ext_resource path="res://Scripts/Diggo.gd" type="Script" id=19]
+[ext_resource path="res://Sprites/Animations/Diggo/Jumping/DiggoJumping0001.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Animations/Diggo/Idle/DiggoIdle0002.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Animations/Diggo/Idle/DiggoIdle0000.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Animations/Diggo/Idle/DiggoIdle0001.png" type="Texture" id=23]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 3 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 4 ), ExtResource( 11 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "Running",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 20 ), ExtResource( 2 ), ExtResource( 18 ), ExtResource( 7 ), ExtResource( 1 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "Jumping",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 14 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Digging",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 109.304, 51.6634 )
+
+[node name="Diggo" type="KinematicBody2D" groups=[
+"Player",
+]]
+script = ExtResource( 19 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -2.21606, -3.32413 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+animation = "Jumping"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 6.97211, 10.6979 )
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 2, 2 )
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
