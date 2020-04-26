@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Sprites/Animations/Props/treasure chest0003.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Animations/Props/treasure chest0001.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Animations/Props/treasure chest0000.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/treasureChest.gd" type="Script" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 4.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 15.9411, 8.75877 )
+
+[node name="treasureChest" type="Area2D"]
+script = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.475647, 6.18347 )
+shape = SubResource( 2 )
+[connection signal="body_entered" from="." to="." method="_on_treasureChest_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

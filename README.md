@@ -8,4 +8,5 @@ A game made with Godot for ENSEIRB-MATMECA SDA Game Jam of 2020
 https://opengameart.org/content/warped-caves-pixel-art-pack
 https://opengameart.org/content/mountain-at-dusk-background
 https://opengameart.org/content/forest-background
+- treasure chest by r0ar, License(CC0), https://opengameart.org/content/treasure-chest-sprite
 		

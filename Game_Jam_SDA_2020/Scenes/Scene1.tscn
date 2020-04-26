@@ -339,7 +339,7 @@ points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
 8/z_index = 0
 
 [sub_resource type="RectangleShape2D" id=21]
-extents = Vector2( 227.763, 268.754 )
+extents = Vector2( 227.763, 385.857 )
 
 [sub_resource type="RectangleShape2D" id=22]
 extents = Vector2( 10, 458.444 )
@@ -385,7 +385,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="House"]
-position = Vector2( 225.225, 855.593 )
+position = Vector2( 225.225, 739.787 )
 z_index = 2
 shape = SubResource( 21 )
 
@@ -413,13 +413,13 @@ scale = Vector2( 1, 2.07586 )
 texture = ExtResource( 7 )
 
 [node name="zqsd_to_move" type="Sprite" parent="."]
-position = Vector2( 445.76, 392.512 )
+position = Vector2( 630.748, 521.71 )
 texture = ExtResource( 10 )
 
 [node name="space_to_jump" type="Sprite" parent="."]
-position = Vector2( 1262.12, 658.819 )
+position = Vector2( 830.482, 688.182 )
 texture = ExtResource( 8 )
 
 [node name="a_to_dig" type="Sprite" parent="."]
-position = Vector2( 2819.95, 648.427 )
+position = Vector2( 2966.77, 630.809 )
 texture = ExtResource( 9 )

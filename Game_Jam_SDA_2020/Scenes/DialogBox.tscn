@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/dialogBG.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/DialogBox.gd" type="Script" id=2]
+
+[node name="DialogBox" type="Polygon2D"]
+position = Vector2( 5.14563, 1.47018 )
+z_index = 2
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( -1.00175, -1.29178, 605.48, 1.17599, 605.977, 251.041, 2.55613, 253.981 )
+script = ExtResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 10.0
+margin_top = 9.0
+margin_right = 204.0
+margin_bottom = 86.0
+rect_scale = Vector2( 3, 3 )
+custom_colors/default_color = Color( 0.584314, 0.329412, 0, 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

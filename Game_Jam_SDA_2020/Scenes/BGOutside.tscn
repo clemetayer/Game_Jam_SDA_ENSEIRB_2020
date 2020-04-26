@@ -6,17 +6,17 @@
 [node name="Bg" type="ParallaxBackground"]
 
 [node name="SkyParallax" type="ParallaxLayer" parent="."]
-motion_mirroring = Vector2( 1500, 0 )
+motion_mirroring = Vector2( 2250, 1800 )
 
 [node name="Sky" type="Sprite" parent="SkyParallax"]
-scale = Vector2( 2, 2 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 centered = false
 
 [node name="CloudsParallax" type="ParallaxLayer" parent="."]
-motion_mirroring = Vector2( 1500, 0 )
+motion_mirroring = Vector2( 2250, 0 )
 
 [node name="Clouds" type="Sprite" parent="CloudsParallax"]
-scale = Vector2( 2, 2 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
 centered = false

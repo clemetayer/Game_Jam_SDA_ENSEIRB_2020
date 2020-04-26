@@ -12,18 +12,50 @@ export var JUMP_POWER = -900
 export var FLOOR = Vector2(0,-1)
 export var isDigging = false
 
+const purpleProjectile = preload("res://Scenes/PurpleProjectile.tscn")
+const whiteProjectile = preload("res://Scenes/WhiteProjectile.tscn")
+const orangeProjectile = preload("res://Scenes/OrangeProjectile.tscn")
+
 var velocity = Vector2()
 var isFacingRight = true
 var animationDone = true
+var isPlayingDialog = false
+var currentProjectile = 0 # 0 = None, 1 = Orange, 2 = Purple, 3 = White
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	currentProjectile = global.lastProjectile
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	inputManager()
+	if(not isPlayingDialog):
+		inputManager()
+	elif((not get_node("OrangeDialog").get("StartDialog"))
+		and (not get_node("PurpleDialog").get("StartDialog"))
+		and (not get_node("WhiteDialog").get("StartDialog"))):
+		isPlayingDialog = false
+
+func playOrangeDialog():
+	if(not isFacingRight):
+		isFacingRight = true
+		self.scale.x = self.scale.x * -1
+	get_node("OrangeDialog").StartDialog()
+	isPlayingDialog = true
+
+func playPurpleDialog():
+	if(not isFacingRight):
+		isFacingRight = true
+		self.scale.x = self.scale.x * -1
+	get_node("PurpleDialog").StartDialog()
+	isPlayingDialog = true
+
+func playWhiteDialog():
+	if(not isFacingRight):
+		isFacingRight = true
+		self.scale.x = self.scale.x * -1
+	get_node("WhiteDialog").StartDialog()
+	isPlayingDialog = true
 
 func inputManager():
 	if(Input.is_action_pressed("right")):
@@ -72,6 +104,41 @@ func inputManager():
 			isDigging = false
 			animationDone = false
 	
+	if(Input.is_action_just_pressed("select_orange")):
+		if(global.unlockedOrange):
+			global.lastProjectile = 1
+			currentProjectile = 1
+	elif(Input.is_action_just_pressed("select_purple")):
+		if(global.unlockedPurple):
+			global.lastProjectile = 1
+			currentProjectile = 2
+	elif(Input.is_action_just_pressed("select_white")):
+		if(global.unlockedWhite):
+			global.lastProjectile = 1
+			currentProjectile = 3
+	
+	if(Input.is_action_just_pressed("shoot")):
+		if(currentProjectile == 1):
+			var orange_instance = orangeProjectile.instance()
+			get_parent().add_child(orange_instance)
+			if(isFacingRight):
+				orange_instance.throw(Vector2(1,0),position,30)
+			else:
+				orange_instance.throw(Vector2(-1,0),position,30)
+		elif(currentProjectile == 2):
+			var purple_instance = purpleProjectile.instance()
+			get_parent().add_child(purple_instance)
+			if(isFacingRight):
+				purple_instance.throw(Vector2(1,0),position,30)
+			else:
+				purple_instance.throw(Vector2(-1,0),position,30)
+		elif(currentProjectile == 3):
+			var white_instance = whiteProjectile.instance()
+			get_parent().add_child(white_instance)
+			if(isFacingRight):
+				white_instance.throw(Vector2(1,0),position,30)
+			else:
+				white_instance.throw(Vector2(-1,0),position,30)
 
 	move_and_slide(velocity,FLOOR)
 	velocity.y += GRAVITY

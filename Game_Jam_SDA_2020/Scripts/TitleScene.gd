@@ -9,7 +9,10 @@ const scene1 = preload("res://Scenes/Scene1.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass 
+	global.unlockedPurple = false
+	global.unlockedWhite = false
+	global.unlockedOrange = false 
+	global.lastProjectile = 0
 
 func _on_PlayButton_pressed():
 	global.spawnPoint = Vector2(722,1044)

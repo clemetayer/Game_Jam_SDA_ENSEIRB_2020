@@ -16,5 +16,6 @@ func _ready():
 
 
 func _on_TeleportToScene_body_entered(body):
-	global.spawnPoint = spawn
-	get_tree().change_scene(teleportTo)
+	if body.is_in_group("Player"):
+		global.spawnPoint = spawn
+		get_tree().change_scene(teleportTo)

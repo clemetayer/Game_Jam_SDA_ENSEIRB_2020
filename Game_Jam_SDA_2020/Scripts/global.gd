@@ -2,6 +2,10 @@ extends Node
 
 # Declare member variables here. Examples:
 var spawnPoint
+var unlockedPurple
+var unlockedWhite
+var unlockedOrange
+var lastProjectile
 
 
 # Called when the node enters the scene tree for the first time.
