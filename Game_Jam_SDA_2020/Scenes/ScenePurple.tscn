@@ -31,8 +31,8 @@ teleportTo = "res://Scenes/Scene2.tscn"
 spawn = Vector2( -4400, 2750 )
 
 [node name="TeleportToScene2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2211.71, -1099.87 )
-scale = Vector2( 1, 4 )
+position = Vector2( 2211.71, -1245.14 )
+scale = Vector2( 1, 8 )
 teleportTo = "res://Scenes/Scene2.tscn"
 spawn = Vector2( -4650, 1850 )
 

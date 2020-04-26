@@ -21,7 +21,7 @@ tile_data = PoolIntArray( 196609, 16, 131072, 262145, 16, 131072, 327681, 16, 13
 [node name="ForestParallax" parent="." instance=ExtResource( 3 )]
 
 [node name="TeleportToScene" parent="." instance=ExtResource( 4 )]
-position = Vector2( -69.0967, 608.368 )
+position = Vector2( -1.42898, 604.267 )
 scale = Vector2( 1, 4 )
 teleportTo = "res://Scenes/Scene2.tscn"
 spawn = Vector2( 7590, 2100 )
